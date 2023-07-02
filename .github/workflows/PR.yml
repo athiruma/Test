@@ -24,6 +24,7 @@ jobs:
            - '3.8'
            - '3.9'
            - '3.10'
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'ok-to-test') }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -34,10 +35,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          if: ${{ contains(github.event.pull_request.labels.*.name, 'ok-to-test') }}
             python -m pip install --upgrade pip
             pip install flake8 pytest pytest-cov
       - name: run echo
         run: |
-          if: ${{ contains(github.event.pull_request.labels.*.name, 'ok-to-test') }}
             echo 'Test'
