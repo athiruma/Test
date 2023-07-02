@@ -39,4 +39,4 @@ jobs:
             pip install flake8 pytest pytest-cov
       - name: run echo
         run: |
-            echo 'Test'
+            echo 'Test1'
