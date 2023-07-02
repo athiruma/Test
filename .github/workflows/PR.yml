@@ -39,4 +39,12 @@ jobs:
             pip install flake8 pytest pytest-cov
       - name: run echo
         run: |
-            echo 'Test'
+            echo 'Test1'
+
+  integration_test:
+    needs: unittest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Step
+        run: |
+          echo 'Test Step: The label is present'
