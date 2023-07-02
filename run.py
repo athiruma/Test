@@ -1,3 +1,2 @@
 def empty():
     print("empty")
-   
