@@ -3,6 +3,7 @@ name: PR Test CI
 
 on:
   pull_request_target:
+    types: [labeled, opened]
     branches: [ main ]
   workflow_dispatch:
 
@@ -33,5 +34,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install flake8 pytest pytest-cov
+          if: ${{ contains(github.event.pull_request.labels.*.name, 'ok-to-test') }}
+            python -m pip install --upgrade pip
+            pip install flake8 pytest pytest-cov
+      - name: run echo
+        run: |
+          if: ${{ contains(github.event.pull_request.labels.*.name, 'ok-to-test') }}
+            echo 'Test'
