@@ -1,1 +1,7 @@
-b1
+print('b1')
+print('b2')
+print('b3')
+print('b4')
+print('b5')
+print('b6')
+print('b7')
