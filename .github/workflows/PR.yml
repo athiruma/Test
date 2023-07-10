@@ -21,6 +21,7 @@ jobs:
   unittest:
     # run all python versions, in other jobs run the latest python
     name: unittest
+    needs: [ approve ] # Require the first step to finish
     runs-on: ubuntu-latest
     strategy:
       matrix:
