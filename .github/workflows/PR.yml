@@ -22,6 +22,8 @@ jobs:
     # run all python versions, in other jobs run the latest python
     name: unittest
     needs: [ approve ] # Require the first step to finish
+    environment:
+      name: Integrate Pull Request # Our protected environment variable
     runs-on: ubuntu-latest
     strategy:
       matrix:
